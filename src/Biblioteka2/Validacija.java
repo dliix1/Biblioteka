@@ -11,6 +11,8 @@ public class Validacija {
 				return true;
 			}
 		}
+		System.out.println("Racun je uspjesno napravljen!");
+		System.out.println();
 		return false;
 
 	}
@@ -23,6 +25,8 @@ public class Validacija {
 				return true;
 			}
 		}
+		System.out.println("Knjiga je uspjesno napravljena!");
+		System.out.println();
 		return false;
 	}
 	
@@ -57,6 +61,27 @@ public class Validacija {
 		
 	}
 	
+	public static boolean validacijaZaVracanjeKnjige(int brojRacuna, int brojKnjige) throws IOException {
+		
+		Racun trenutniRacun = Racun.getRacun(brojRacuna);
+		if (trenutniRacun == null){
+			System.out.println("Unijeti racun ne postoji!");
+			return false;
+		}
+		
+		Knjiga trenutnaKnjiga = Knjiga.getKnjiga(brojKnjige);
+		if (trenutnaKnjiga == null){
+			System.out.println("Unijeta knjiga ne postoji!");
+			return false;
+		}
+		
+		if (!trenutnaKnjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
+			System.out.println("Unijeta knjiga nije na stanju ili je vec podignuta!");
+			return false;
+		}
+		
+		return true;
+	}
 	
 
 }

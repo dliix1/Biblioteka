@@ -66,4 +66,15 @@ public class Racun {
 		return null;
 	}
 
+	public static String ispisRacuna(int brojRacuna) {
+		for (int i = 0; i < racunArrayLista.size(); i++)
+			if (brojRacuna == racunArrayLista.get(i).brojRacuna)
+				return "Broj racuna: " + racunArrayLista.get(i).brojRacuna
+						+ "\nIme musterije: "
+						+ racunArrayLista.get(i).imeMusterije
+						+ "\nBroj posudjenih knjiga: "
+						+ racunArrayLista.get(i).brojPosudjenihKnjiga;
+
+		return "Unijeti broj racuna ne postoji.";
+	}
 }

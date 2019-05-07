@@ -1,39 +1,140 @@
 package Biblioteka2;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Scanner;
 
 public class BibliotekaTest {
 
 	public static Scanner unos = new Scanner(System.in);
 
-	public static void menu() {
+	public static void main(String[] args) throws IOException {
+
+		menu();
+
+	}
+
+	public static void menu() throws IOException {
 		System.out.println(" --- BIBLIOTEKA APP ---");
-		System.out.println(" --- ZA KREIRANJE RACUNA PRITISNITE 1! ---");
-		System.out.println(" --- ZA KREIRANJE KNJIGA PRITISNITE 2! ---");
+		System.out.println("Odaberite akciju: ");
+		System.out.println("1. Kreiranje racuna.");
+		System.out.println("2. Kreiranje knjige.");
 		System.out
-				.println(" --- ZA PODIZANJE KNJIGA NA ODREDJENI VREMENSKI PERIOD PRITISNITE 3! ---");
-		System.out
-				.println(" --- ZA ISPISIVANJE DETALJA POSTOJECEG RACUNA PRITISNITE 4! ---");
+				.println("3. Podizanje knjige na odredjeni vremenski period.");
+		System.out.println("4. Vracanje knjige.");
+		System.out.println("5. Ispis detalja postojeceg racuna.");
+		System.out.println("6. Ispis detalja zapisnika.");
+
+		int korisnikovUnos = unosIntegera();
+
+		switch (korisnikovUnos) {
+		case 1:
+			kreiranjeRacuna();
+			break;
+
+		case 2:
+			kreiranjeKnjige();
+			break;
+
+		case 3:
+			podizanjeKnjige();
+			break;
+
+		case 4:
+			vracanjeKnjige();
+			break;
+		case 5:
+			ispisRacuna();
+			break;
+		case 6: 
+			ispisZapisnika();
+			break;
+
+		}
 	}
 
 	public static void kreiranjeRacuna() throws IOException {
 
 		System.out.println("Unesite broj racuna: ");
 		int brojRacuna = unosIntegera();
-		
+
 		System.out.println("Unesite ime musterije: ");
+		unos.next();
+
 		String imeMusterije = unos.nextLine();
-		
+
 		int brojPodignutihKnjigaPrilikomKreacije = 0;
-		
-		Racun racun = new Racun (brojRacuna, imeMusterije, brojPodignutihKnjigaPrilikomKreacije);
+
+		Validacija.validacijaZaKreacijuRacuna(brojRacuna);
+
+		new Racun(brojRacuna, imeMusterije,
+				brojPodignutihKnjigaPrilikomKreacije);
+
+		menu();
 
 	}
-	
-	public static void validacijaZaKreacijuRacuna() throws IOException {
+
+	public static void kreiranjeKnjige() throws IOException {
+
+		System.out.println("Unesite broj knjige: ");
+		int brojKnjige = unosIntegera();
+
+		System.out.println("Unesite ime knjige: ");
+		unos.next();
+
+		String imeKnjige = unos.nextLine();
+
+		Validacija.validacijaZaKreiranjeKnjige(brojKnjige);
+
+		new Knjiga(brojKnjige, imeKnjige, false);
+
+		menu();
+
+	}
+
+	public static void podizanjeKnjige() throws IOException {
+
+		System.out.println("Unesite vas broj racuna: ");
+		int brojRacuna = unosIntegera();
+
+		System.out.println("Unesite broj knjige: ");
+		int brojKnjige = unosIntegera();
+
+		Knjiga.podizanjeKnjige(brojRacuna, brojKnjige, new Date(0));
+
+		menu();
+
+	}
+
+	public static void vracanjeKnjige() throws IOException {
+
+		System.out.println("Unesite vas broj racuna: ");
+		int brojRacuna = unosIntegera();
+
+		System.out.println("Unesite broj knjige: ");
+		int brojKnjige = unosIntegera();
+
+		Knjiga.vracanjeKnjige(brojRacuna, brojKnjige, new Date(0));
+
+		menu();
+
+	}
+
+	public static void ispisRacuna() throws IOException {
+
+		System.out.println("Unesite broj racuna: ");
+		int brojRacuna = unosIntegera();
+
+		System.out.println(Racun.ispisRacuna(brojRacuna));
 		
-		Racun racun = new Racun();
+		menu();
+	}
+	
+	public static void ispisZapisnika() throws IOException {
+		
+		System.out.println(Zapisnik.ispisi());
+		
+		menu();
 		
 	}
 
