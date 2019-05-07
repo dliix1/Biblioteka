@@ -33,26 +33,26 @@ public class Validacija {
 	public static boolean validacijaZaPodizanjeKnjige(int brojRacuna, int brojKnjige) throws IOException{
 		
 		
-		Racun trenutniRacun = Racun.getRacun(brojRacuna);
+		Racun racun = Racun.getRacun(brojRacuna);
 		
-		if (trenutniRacun == null){
+		if (racun == null){
 			System.out.println("Nepostojeci racun!");
 			return false;
 		}
 		
-		Knjiga trenutnaKnjiga = Knjiga.getKnjiga(brojKnjige);
+		Knjiga knjiga = Knjiga.getKnjiga(brojKnjige);
 		
-		if (trenutnaKnjiga == null){
+		if (knjiga == null){
 			System.out.println("Nepostojeca knjiga!");
 			return false;
 		}
 		
-		if (trenutniRacun.getBrojPosudjenihKnjiga() >= 3){
+		if (racun.getBrojPosudjenihKnjiga() >= 3){
 			System.out.println("Unijeti racun ima tri ili vise podignutih knjiga!");
 			return false;
 		}
 		
-		if (trenutnaKnjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
+		if (knjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
 			System.out.println("Trazena broj knjige je podignut!");
 			return false;
 		}
@@ -63,19 +63,19 @@ public class Validacija {
 	
 	public static boolean validacijaZaVracanjeKnjige(int brojRacuna, int brojKnjige) throws IOException {
 		
-		Racun trenutniRacun = Racun.getRacun(brojRacuna);
-		if (trenutniRacun == null){
+		Racun racun = Racun.getRacun(brojRacuna);
+		if (racun == null){
 			System.out.println("Unijeti racun ne postoji!");
 			return false;
 		}
 		
-		Knjiga trenutnaKnjiga = Knjiga.getKnjiga(brojKnjige);
-		if (trenutnaKnjiga == null){
+		Knjiga knjiga = Knjiga.getKnjiga(brojKnjige);
+		if (knjiga == null){
 			System.out.println("Unijeta knjiga ne postoji!");
 			return false;
 		}
 		
-		if (!trenutnaKnjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
+		if (!knjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
 			System.out.println("Unijeta knjiga nije na stanju ili je vec podignuta!");
 			return false;
 		}

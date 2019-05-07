@@ -19,7 +19,8 @@ public class BibliotekaTest {
 		System.out.println("Odaberite akciju: ");
 		System.out.println("1. Kreiranje racuna.");
 		System.out.println("2. Kreiranje knjige.");
-		System.out.println("3. Podizanje knjige na odredjeni vremenski period.");
+		System.out
+				.println("3. Podizanje knjige na odredjeni vremenski period.");
 		System.out.println("4. Vracanje knjige.");
 		System.out.println("5. Ispis detalja postojeceg racuna.");
 		System.out.println("6. Ispis detalja zapisnika.");
@@ -42,10 +43,12 @@ public class BibliotekaTest {
 		case 4:
 			vracanjeKnjige();
 			break;
+
 		case 5:
 			ispisRacuna();
 			break;
-		case 6: 
+
+		case 6:
 			ispisZapisnika();
 			break;
 
@@ -66,7 +69,7 @@ public class BibliotekaTest {
 
 		Validacija.validacijaZaKreacijuRacuna(brojRacuna);
 
-		new Racun(brojRacuna, imeMusterije,
+		Racun racun = new Racun(brojRacuna, imeMusterije,
 				brojPodignutihKnjigaPrilikomKreacije);
 
 		menu();
@@ -85,7 +88,7 @@ public class BibliotekaTest {
 
 		Validacija.validacijaZaKreiranjeKnjige(brojKnjige);
 
-		new Knjiga(brojKnjige, imeKnjige, false);
+		Knjiga knjiga = new Knjiga(brojKnjige, imeKnjige, false);
 
 		menu();
 
@@ -125,16 +128,16 @@ public class BibliotekaTest {
 		int brojRacuna = unosIntegera();
 
 		System.out.println(Racun.ispisRacuna(brojRacuna));
-		
+
 		menu();
 	}
-	
+
 	public static void ispisZapisnika() throws IOException {
-		
+
 		System.out.println(Zapisnik.ispisi());
-		
+
 		menu();
-		
+
 	}
 
 	public static int unosIntegera() {
@@ -145,7 +148,7 @@ public class BibliotekaTest {
 			try {
 				uneseniBroj = unos.nextInt();
 				break;
-			} catch (Exception e) {
+			} catch (Exception exception) {
 				System.out.println("Unesite ispravan unos!");
 				unos.nextLine();
 				continue;
