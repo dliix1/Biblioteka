@@ -3,11 +3,11 @@ package Biblioteka2;
 import java.util.ArrayList;
 
 public class Knjiga {
-	
+
 	public int brojKnjige;
 	public String imeKnjige;
 	public boolean statusKnjigeDaLiJeKnjigaIzdataIliNe;
-	
+
 	public int getBrojKnjige() {
 		return brojKnjige;
 	}
@@ -34,28 +34,39 @@ public class Knjiga {
 	}
 
 	public static ArrayList<Knjiga> knjigaArrayLista = new ArrayList<>();
-	
-	public Knjiga(){
-		
+
+	public Knjiga() {
+
 	}
-	
-	public Knjiga(int brojKnjige, String imeKnjige, boolean statusKnjigeDaLiJeKnigaIzdataIliNe){
-		
+
+	public Knjiga(int brojKnjige, String imeKnjige,
+			boolean statusKnjigeDaLiJeKnigaIzdataIliNe) {
+
 		this.brojKnjige = brojKnjige;
 		this.imeKnjige = imeKnjige;
 		this.statusKnjigeDaLiJeKnjigaIzdataIliNe = statusKnjigeDaLiJeKnigaIzdataIliNe;
-		
+
 		knjigaArrayLista.add(this);
-		
+
 	}
-	
-	public static boolean daLiPostojiVecKnjigaSaIstimIDom (int brojKnjige){
-		for (int i = 0; i < knjigaArrayLista.size(); i++){
-			if (knjigaArrayLista.get(i).brojKnjige == brojKnjige){
+
+	public static boolean daLiPostojiVecKnjigaSaIstimIDom(int brojKnjige) {
+		for (int i = 0; i < knjigaArrayLista.size(); i++) {
+			if (knjigaArrayLista.get(i).brojKnjige == brojKnjige) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
+	public static Knjiga getKnjiga(int brojKnjige) {
+
+		for (int i = 0; i < knjigaArrayLista.size(); i++) {
+			if (knjigaArrayLista.get(i).brojKnjige == brojKnjige)
+				return knjigaArrayLista.get(i);
+		}
+
+		return null;
+	}
+
 }
