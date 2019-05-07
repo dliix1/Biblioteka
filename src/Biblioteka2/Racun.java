@@ -70,9 +70,9 @@ public class Racun {
 		for (int i = 0; i < racunArrayLista.size(); i++)
 			if (brojRacuna == racunArrayLista.get(i).brojRacuna)
 				return "Broj racuna: " + racunArrayLista.get(i).brojRacuna
-						+ "\nIme musterije: "
+						+ " Ime musterije: "
 						+ racunArrayLista.get(i).imeMusterije
-						+ "\nBroj posudjenih knjiga: "
+						+ " Broj posudjenih knjiga: "
 						+ racunArrayLista.get(i).brojPosudjenihKnjiga;
 
 		return "Unijeti broj racuna ne postoji.";

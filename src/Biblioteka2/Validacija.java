@@ -75,7 +75,7 @@ public class Validacija {
 			return false;
 		}
 		
-		if (!knjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
+		if (knjiga.statusKnjigeDaLiJeKnjigaIzdataIliNe){
 			System.out.println("Unijeta knjiga nije na stanju ili je vec podignuta!");
 			return false;
 		}

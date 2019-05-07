@@ -80,8 +80,7 @@ public class Knjiga {
 		String datumPodizanjaKnjige = noviDateFormat.format(datumPodizanja);
 
 		if (Validacija.validacijaZaPodizanjeKnjige(brojRacuna, brojKnjige)) {
-
-			Knjiga.getKnjiga(brojKnjige).statusKnjigeDaLiJeKnjigaIzdataIliNe = true;
+			
 			Racun.getRacun(brojRacuna).setBrojPosudjenihKnjiga(
 					Racun.getRacun(brojRacuna).brojPosudjenihKnjiga + 1);
 			System.out.println("Knjiga je podignuta!");
