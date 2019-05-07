@@ -58,12 +58,4 @@ public class Knjiga {
 		return false;
 	}
 	
-	public static boolean daLiJeUneseniBrojKnjigeNegativan (int brojKnjige){
-		if (brojKnjige < 0){
-			return true;
-			
-		}
-		return false;
-	}
-	
 }
