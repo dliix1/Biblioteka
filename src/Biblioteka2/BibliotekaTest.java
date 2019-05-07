@@ -1,7 +1,7 @@
 package Biblioteka2;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Scanner;
 
 public class BibliotekaTest {
@@ -19,8 +19,7 @@ public class BibliotekaTest {
 		System.out.println("Odaberite akciju: ");
 		System.out.println("1. Kreiranje racuna.");
 		System.out.println("2. Kreiranje knjige.");
-		System.out
-				.println("3. Podizanje knjige na odredjeni vremenski period.");
+		System.out.println("3. Podizanje knjige na odredjeni vremenski period.");
 		System.out.println("4. Vracanje knjige.");
 		System.out.println("5. Ispis detalja postojeceg racuna.");
 		System.out.println("6. Ispis detalja zapisnika.");
@@ -100,7 +99,7 @@ public class BibliotekaTest {
 		System.out.println("Unesite broj knjige: ");
 		int brojKnjige = unosIntegera();
 
-		Knjiga.podizanjeKnjige(brojRacuna, brojKnjige, new Date(0));
+		Knjiga.podizanjeKnjige(brojRacuna, brojKnjige, new Date());
 
 		menu();
 
@@ -114,7 +113,7 @@ public class BibliotekaTest {
 		System.out.println("Unesite broj knjige: ");
 		int brojKnjige = unosIntegera();
 
-		Knjiga.vracanjeKnjige(brojRacuna, brojKnjige, new Date(0));
+		Knjiga.vracanjeKnjige(brojRacuna, brojKnjige, new Date());
 
 		menu();
 
