@@ -1,6 +1,5 @@
 package Biblioteka2;
 
-import java.io.IOException;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,6 +10,20 @@ public class Knjiga {
 	public int brojKnjige;
 	public String imeKnjige;
 	public boolean statusKnjigeDaLiJeKnjigaIzdataIliNe;
+	public static ArrayList<Knjiga> knjigaArrayLista = new ArrayList<>();
+
+	public Knjiga() {
+
+	}
+
+	public Knjiga(int brojKnjige, String imeKnjige,
+			boolean statusKnjigeDaLiJeKnigaIzdataIliNe) {
+
+		this.brojKnjige = brojKnjige;
+		this.imeKnjige = imeKnjige;
+		this.statusKnjigeDaLiJeKnjigaIzdataIliNe = statusKnjigeDaLiJeKnigaIzdataIliNe;
+		knjigaArrayLista.add(this);
+	}
 
 	public int getBrojKnjige() {
 		return brojKnjige;
@@ -36,24 +49,7 @@ public class Knjiga {
 			boolean statusKnjigeDaLiJeKnjigaIzdataIliNe) {
 		this.statusKnjigeDaLiJeKnjigaIzdataIliNe = statusKnjigeDaLiJeKnjigaIzdataIliNe;
 	}
-
-	public static ArrayList<Knjiga> knjigaArrayLista = new ArrayList<>();
-
-	public Knjiga() {
-
-	}
-
-	public Knjiga(int brojKnjige, String imeKnjige,
-			boolean statusKnjigeDaLiJeKnigaIzdataIliNe) {
-
-		this.brojKnjige = brojKnjige;
-		this.imeKnjige = imeKnjige;
-		this.statusKnjigeDaLiJeKnjigaIzdataIliNe = statusKnjigeDaLiJeKnigaIzdataIliNe;
-
-		knjigaArrayLista.add(this);
-
-	}
-
+	
 	public static boolean daLiPostojiVecKnjigaSaIstimIDom(int brojKnjige) {
 		for (int i = 0; i < knjigaArrayLista.size(); i++) {
 			if (knjigaArrayLista.get(i).brojKnjige == brojKnjige) {
@@ -74,13 +70,13 @@ public class Knjiga {
 	}
 
 	public static void podizanjeKnjige(int brojRacuna, int brojKnjige,
-			Date datumPodizanja) throws IOException {
+			Date datumPodizanja) {
 
 		DateFormat noviDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		String datumPodizanjaKnjige = noviDateFormat.format(datumPodizanja);
 
 		if (Validacija.validacijaZaPodizanjeKnjige(brojRacuna, brojKnjige)) {
-			
+
 			Racun.getRacun(brojRacuna).setBrojPosudjenihKnjiga(
 					Racun.getRacun(brojRacuna).brojPosudjenihKnjiga + 1);
 			System.out.println("Knjiga je podignuta!");
@@ -94,7 +90,7 @@ public class Knjiga {
 	}
 
 	public static void vracanjeKnjige(int brojRacuna, int brojKnjige,
-			Date datumVracanja) throws IOException {
+			Date datumVracanja) {
 
 		DateFormat noviDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		String datumVracanjaKnjige = noviDateFormat.format(datumVracanja);
@@ -114,5 +110,5 @@ public class Knjiga {
 
 		}
 	}
-	
+
 }

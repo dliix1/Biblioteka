@@ -14,13 +14,12 @@ public class BibliotekaTest {
 
 	}
 
-	public static void menu() throws IOException {
+	public static void menu() {
 		System.out.println(" --- BIBLIOTEKA APP ---");
 		System.out.println("Odaberite akciju: ");
 		System.out.println("1. Kreiranje racuna.");
 		System.out.println("2. Kreiranje knjige.");
-		System.out
-				.println("3. Podizanje knjige na odredjeni vremenski period.");
+		System.out.println("3. Podizanje knjige na odredjeni vremenski period.");
 		System.out.println("4. Vracanje knjige.");
 		System.out.println("5. Ispis detalja postojeceg racuna.");
 		System.out.println("6. Ispis detalja zapisnika.");
@@ -55,7 +54,7 @@ public class BibliotekaTest {
 		}
 	}
 
-	public static void kreiranjeRacuna() throws IOException {
+	public static void kreiranjeRacuna() {
 
 		System.out.println("Unesite broj racuna: ");
 		int brojRacuna = unosIntegera();
@@ -64,19 +63,16 @@ public class BibliotekaTest {
 		unos.next();
 
 		String imeMusterije = unos.nextLine();
-
 		int brojPodignutihKnjigaPrilikomKreacije = 0;
-
 		Validacija.validacijaZaKreacijuRacuna(brojRacuna);
 
-		Racun racun = new Racun(brojRacuna, imeMusterije,
-				brojPodignutihKnjigaPrilikomKreacije);
+		new Racun(brojRacuna, imeMusterije, brojPodignutihKnjigaPrilikomKreacije);
 
 		menu();
 
 	}
 
-	public static void kreiranjeKnjige() throws IOException {
+	public static void kreiranjeKnjige() {
 
 		System.out.println("Unesite broj knjige: ");
 		int brojKnjige = unosIntegera();
@@ -85,16 +81,16 @@ public class BibliotekaTest {
 		unos.next();
 
 		String imeKnjige = unos.nextLine();
-
 		Validacija.validacijaZaKreiranjeKnjige(brojKnjige);
+		boolean statusKnjige = false;
 
-		Knjiga knjiga = new Knjiga(brojKnjige, imeKnjige, false);
+		new Knjiga(brojKnjige, imeKnjige, statusKnjige);
 
 		menu();
 
 	}
 
-	public static void podizanjeKnjige() throws IOException {
+	public static void podizanjeKnjige() {
 
 		System.out.println("Unesite vas broj racuna: ");
 		int brojRacuna = unosIntegera();
@@ -108,7 +104,7 @@ public class BibliotekaTest {
 
 	}
 
-	public static void vracanjeKnjige() throws IOException {
+	public static void vracanjeKnjige() {
 
 		System.out.println("Unesite vas broj racuna: ");
 		int brojRacuna = unosIntegera();
@@ -122,7 +118,7 @@ public class BibliotekaTest {
 
 	}
 
-	public static void ispisRacuna() throws IOException {
+	public static void ispisRacuna() {
 
 		System.out.println("Unesite broj racuna: ");
 		int brojRacuna = unosIntegera();
@@ -132,7 +128,7 @@ public class BibliotekaTest {
 		menu();
 	}
 
-	public static void ispisZapisnika() throws IOException {
+	public static void ispisZapisnika() {
 
 		System.out.println(Zapisnik.ispisi());
 

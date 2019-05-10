@@ -7,6 +7,21 @@ public class Racun {
 	public int brojRacuna;
 	public String imeMusterije;
 	public int brojPosudjenihKnjiga;
+	public static ArrayList<Racun> racunArrayLista = new ArrayList<>();
+	
+	public Racun() {
+
+	}
+
+	public Racun(int brojRacuna, String imeMusterije, int brojPosudjenihKnjiga) {
+
+		this.brojRacuna = brojRacuna;
+		this.imeMusterije = imeMusterije;
+		this.brojPosudjenihKnjiga = brojPosudjenihKnjiga;
+
+		racunArrayLista.add(this);
+
+	}
 
 	public int getBrojRacuna() {
 		return brojRacuna;
@@ -30,22 +45,6 @@ public class Racun {
 
 	public void setBrojPosudjenihKnjiga(int brojPosudjenihKnjiga) {
 		this.brojPosudjenihKnjiga = brojPosudjenihKnjiga;
-	}
-
-	public static ArrayList<Racun> racunArrayLista = new ArrayList<>();
-
-	public Racun() {
-
-	}
-
-	public Racun(int brojRacuna, String imeMusterije, int brojPosudjenihKnjiga) {
-
-		this.brojRacuna = brojRacuna;
-		this.imeMusterije = imeMusterije;
-		this.brojPosudjenihKnjiga = brojPosudjenihKnjiga;
-
-		racunArrayLista.add(this);
-
 	}
 
 	public static boolean provjeraDaLiPostojiRacunSaIstimBrojem(int brojRacuna) {

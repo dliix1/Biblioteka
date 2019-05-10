@@ -1,10 +1,8 @@
 package Biblioteka2;
 
-import java.io.IOException;
-
 public class Validacija {
 
-	public static boolean validacijaZaKreacijuRacuna(int id) throws IOException {
+	public static boolean validacijaZaKreacijuRacuna(int id) {
 
 		for (int i = 0; i < Racun.racunArrayLista.size(); i++) {
 			if (Racun.racunArrayLista.get(i).brojRacuna == id) {
@@ -17,8 +15,7 @@ public class Validacija {
 
 	}
 
-	public static boolean validacijaZaKreiranjeKnjige(int brojKnjige)
-			throws IOException {
+	public static boolean validacijaZaKreiranjeKnjige(int brojKnjige) {
 
 		for (int i = 0; i < Knjiga.knjigaArrayLista.size(); i++) {
 			if (Knjiga.knjigaArrayLista.get(i).brojKnjige == brojKnjige) {
@@ -30,7 +27,7 @@ public class Validacija {
 		return false;
 	}
 	
-	public static boolean validacijaZaPodizanjeKnjige(int brojRacuna, int brojKnjige) throws IOException{
+	public static boolean validacijaZaPodizanjeKnjige(int brojRacuna, int brojKnjige) {
 		
 		
 		Racun racun = Racun.getRacun(brojRacuna);
@@ -61,7 +58,7 @@ public class Validacija {
 		
 	}
 	
-	public static boolean validacijaZaVracanjeKnjige(int brojRacuna, int brojKnjige) throws IOException {
+	public static boolean validacijaZaVracanjeKnjige(int brojRacuna, int brojKnjige) {
 		
 		Racun racun = Racun.getRacun(brojRacuna);
 		if (racun == null){
